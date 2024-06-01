@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>萵苣健身房-分店查詢</title>
+  <style>
+    *{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+body {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      padding: 0;
+      background: url("image/sport1.jpg");
+      background-size: cover;
+      background-position: center;
+      position: relative; /* 将body设置为相对定位，以便容纳绝对定位的input */
+    }
+
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      text-align: center;
+      position: relative; /* 让table成为相对定位元素 */
+      
+    }
+
+    th, td {
+      border: 1px solid #ccc;
+      text-align: center;
+      padding: 10px;
+    }
+
+    #search-input {
+      width: 500px;
+      height: 50px;
+      margin-bottom: 5px;
+      position: absolute;
+      top: 60px; /* 将input相对于表格上方向上移动 */
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: white; /* 确保输入框的背景是白色 */
+      text-align: center;
+      font-size: 28px;
+    }
+
+    .search-input ::placeholder{
+      text-transform: capitalize;
+      font-size: 28px;
+    }
+    .city {
+      width: 100%;
+      height: 500px; /* 为了示例，您可以设置适当的高度 */
+      overflow: auto;
+      position: relative;
+      background: rgba(255, 255, 255, .3);
+      backdrop-filter: blur(30px);
+      border: 2px solid rgba(255, 255, 255, .5);
+      border-radius: 16px;
+      padding: 20px;
+      color: black;
+      font-size: 28px;
+}
+
+  </style>
+</head>
+<body>
+  <input type="text" id="search-input" class ="search-input" placeholder="輸入縣市">
+  <div class = "city">
+  <table border="1">
+    <thead>
+      <tr>
+        <th>分店名稱</th>
+        <th>地址</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>基隆 信義店</td>
+        <td>基隆市信義區義昭里 3鄰信一路92號1F</td>
+      </tr>
+      <tr>
+        <td>台北 101店</td>
+        <td>臺北市信義區市府路 45號6F</td>
+      </tr>
+      <tr>
+        <td>台北 民生店</td>
+        <td>臺北市松山區民生東路 三段156號B1</td>
+      </tr>
+      <tr>
+        <td>台北  飛動天母店</td>
+        <td>臺北市士林區中山北路 七段73號</td>
+      </tr>
+      <tr>
+        <td>台北  飛動公館店</td>
+        <td>臺北市大安區羅斯福路 三段281號1F</td>
+      </tr>
+      <tr>
+        <td>台北 民權西店 </td>
+        <td>臺北市大同區民權西路 136號1F&amp;B1</td>
+      </tr>
+      <tr>
+        <td>台北 麗水店 </td>
+        <td>臺北市大安區麗水街 18號1F</td>
+      </tr>
+      <tr>
+        <td>台北 大直店 </td>
+        <td>臺北市中山區堤頂大道 二段588號</td>
+      </tr>
+      <tr>
+        <td>台北 光復店</td>
+        <td>臺北市大安區忠孝東路 四段330號B1</td>
+      </tr>
+      <tr>
+        <td>台北 公館店</td>
+        <td>臺北市中正區羅斯福路 四段68號2F</td>
+      </tr>
+      <tr>
+        <td>台北 站前店</td>
+        <td>臺北市中正區忠孝西路 一段50號6F</td>
+      </tr>
+      <tr>
+        <td>台北 長春店</td>
+        <td>臺北市中山區長春路 90號</td>
+      </tr>
+      <tr>
+        <td>台北 民權東路</td>
+        <td>臺北市中山區民權東路 三段86號1F</td>
+      </tr>
+      <tr>
+        <td>台北 南京店</td>
+        <td>臺北市松山區南京東路 五段196號1F</td>
+      </tr>
+      <tr>
+        <td>台北 大安店</td>
+        <td>臺北市大安區信義路 四段6號3F</td>
+      </tr>
+      <tr>
+        <td>台北 統領店</td>
+        <td>臺北市大安區忠孝東路 四段201號3F</td>
+      </tr>
+      <tr>
+        <td>台北 台北西門店</td>
+        <td>臺北市萬華區西寧南路 36號B1</td>
+      </tr>
+      <tr>
+        <td>台北 松仁店</td>
+        <td>臺北市信義區松仁路 277號1F</td>
+      </tr>
+      <tr>
+        <td>台北 松隆店</td>
+        <td>臺北市信義區松隆路 125號1F</td>
+      </tr>
+      <tr>
+        <td>台北 天母德行店</td>
+        <td>臺北市士林區德行東路 331巷35號</td>
+      </tr>
+      <tr>
+        <td>台北 天母店</td>
+        <td>臺北市士林區中山北路 七段34號</td>
+      </tr>
+      <tr>
+        <td>台北 內湖店</td>
+        <td>臺北市內湖區康寧路 三段72號6F</td>
+      </tr>
+      <tr>
+        <td>台北 內湖福華店</td>
+        <td>臺北市內湖區民權東路 六段180巷6號B2</td>
+      </tr>
+      <tr>
+        <td>新北 土城中央店 </td>
+        <td>新北市土城區中央路 二段191號1F</td>
+      </tr>
+      <tr>
+        <td>新北 泰山店 </td>
+        <td>新北市泰山區明志路 三段83號B1</td>
+      </tr>
+      <tr>
+        <td>新北 蘆洲店 </td>
+        <td>新北市蘆洲區民族路 31號之5</td>
+      </tr>
+      <tr>
+        <td>新北 永和店 </td>
+        <td>新北市永和區仁愛路 309號B1</td>
+      </tr>
+      <tr>
+        <td>新北 北新莊店 </td>
+        <td>新北市新莊區幸福路 778號B1</td>
+      </tr>
+      <tr>
+        <td>新北 板橋雙十店</td>
+        <td>新北市板橋區雙十路 二段143號1F</td>
+      </tr>
+      <tr>
+        <td>新北 板橋府中店</td>
+        <td>新北市板橋區中山路 一段10號1F</td>
+      </tr>
+      <tr>
+        <td>新北 板橋中山店</td>
+        <td>新北市板橋區中山路 二段326號1F</td>
+      </tr>
+      <tr>
+        <td>新北 汐止店</td>
+        <td>新北市汐止區中興路 168號2F</td>
+      </tr>
+      <tr>
+        <td>新北 新店店</td>
+        <td>新北市新店區中興路 三段1號5F</td>
+      </tr>
+      <tr>
+        <td>新北 永和民權店</td>
+        <td>新北市永和區民權路 53號B1</td>
+      </tr>
+      <tr>
+        <td>新北 中和店</td>
+        <td>新北市中和區中山路 三段35-3號1F</td>
+      </tr>
+      <tr>
+        <td>新北 景平店</td>
+        <td>新北市中和區景平路 182號1樓</td>
+      </tr>
+      <tr>
+        <td>新北 土城店</td>
+        <td>新北市土城區青雲路 152號5F</td>
+      </tr>
+      <tr>
+        <td>新北 三重店</td>
+        <td>新北市三重區重新路 二段78號1F</td>
+      </tr>
+      <tr>
+        <td>新北 新莊店</td>
+        <td>新北市新莊區民安路 188巷5號B2</td>
+      </tr>
+      <tr>
+        <td>新北 淡水店</td>
+        <td>新北市淡水區大忠街 89號1F</td>
+      </tr>
+      <tr>
+        <td>桃園 南崁店 </td>
+        <td>桃園市蘆竹區南崁路 265號1F</td>
+      </tr>
+      <tr>
+        <td>桃園 內壢店 </td>
+        <td>桃園市中壢區中華路 一段667號2F</td>
+      </tr>
+      <tr>
+        <td>桃園 國強店 </td>
+        <td>桃園市桃園區國強一街 136號</td>
+      </tr>
+      <tr>
+        <td>桃園 林口店</td>
+        <td>桃園市龜山區復興一路 222號1F</td>
+      </tr>
+      <tr>
+        <td>桃園 中壢店</td>
+        <td>桃園縣中壢市中山路 136號2F</td>
+      </tr>
+      <tr>
+        <td>桃園 大有店</td>
+        <td>桃園市桃園區大有路 630號1F</td>
+      </tr>
+      <tr>
+        <td>桃園 復興店</td>
+        <td>桃園市桃園區復興路 186號1F</td>
+      </tr>
+      <tr>
+        <td>新竹 巨城店 </td>
+        <td>新竹市東區中央路 229號6F</td>
+      </tr>
+      <tr>
+        <td>新竹 竹北店 </td>
+        <td>新竹縣竹北市光明六路 東一段189號</td>
+      </tr>
+      <tr>
+        <td>新竹 林森店</td>
+        <td>新竹市北區林森路 273號2F</td>
+      </tr>
+      <tr>
+        <td>新竹 中正店</td>
+        <td>新竹市東區中正路 110號1F</td>
+      </tr>
+      <tr>
+        <td>苗栗 竹南</td>
+        <td>苗栗縣竹南鎮民權街 51巷51號B1</td>
+      </tr>
+      <tr>
+        <td>苗栗 苑裡</td>
+        <td>苗栗縣苑裡鎮為公路 65-1號</td>
+      </tr>
+      <tr>
+        <td>台中 飛動公益店</td>
+        <td>臺中市南屯區大墩路 632號1F</td>
+      </tr>
+      <tr>
+        <td>台中 豐原店 SPORT</td>
+        <td>臺中市豐原區南陽路 508號</td>
+      </tr>
+      <tr>
+        <td>台中 學府店</td>
+        <td>台中市南區學府路 170號B1</td>
+      </tr>
+      <tr>
+        <td>台中 美村店</td>
+        <td>台中市西區美村路 一段22號B1</td>
+      </tr>
+      <tr>
+        <td>台中 一中店</td>
+        <td>台中市北區三民路 三段125號2F</td>
+      </tr>
+      <tr>
+        <td>台中 崇德店</td>
+        <td>台中市北屯區崇德路 二段16號1F</td>
+      </tr>
+      <tr>
+        <td>台中 西屯店</td>
+        <td>臺中市西屯區西屯路 二段258號1F</td>
+      </tr>
+      <tr>
+        <td>台中 黎明店</td>
+        <td>臺中市南屯區黎明路 二段425號1F</td>
+      </tr>
+      <tr>
+        <td>台中 大甲店</td>
+        <td>臺中市大甲區仁愛街 25號1F</td>
+      </tr>
+      <tr>
+        <td>台中 清水店</td>
+        <td>台中市清水區中山路 129號</td>
+      </tr>
+      <tr>
+        <td>彰化 員林店</td>
+        <td>準備中</td>
+      </tr>
+      <tr>
+        <td>嘉義 民族店</td>
+        <td>600 嘉義市西區民族路608號2F</td>
+      </tr>
+      <tr>
+        <td>台南 中華西店 </td>
+        <td>臺南市中西區中華西路 二段650號</td>
+      </tr>
+      <tr>
+        <td>台南 西門店 </td>
+        <td>臺南市北區西門路四段 61號及四段65巷47號</td>
+      </tr>
+      <tr>
+        <td>台南 永康店 </td>
+        <td>台南市永康區中華路 725之1號B1</td>
+      </tr>
+      <tr>
+        <td>台南 FOCUS店</td>
+        <td>台南市中西區中山路 166號B1</td>
+      </tr>
+      <tr>
+        <td>台南 長榮店</td>
+        <td>台南市東區長榮路 一段181號3F</td>
+      </tr>
+      <tr>
+        <td>台南 國賓店</td>
+        <td>台南市東區中華東路 一段70號2F</td>
+      </tr>
+      <tr>
+        <td>台南 樹林店</td>
+        <td>臺南市南區樹林街 二段227號</td>
+      </tr>
+      <tr>
+        <td>台南 善化店</td>
+        <td>台南市善化區中正路 332號(善化郵局)</td>
+      </tr>
+      <tr>
+        <td>高雄 楠梓店 </td>
+        <td>高雄市楠梓區德民路 951號</td>
+      </tr>
+      <tr>
+        <td>高雄 辛亥店 </td>
+        <td>高雄市左營區辛亥路 250號1F</td>
+      </tr>
+      <tr>
+        <td>高雄 博愛店 </td>
+        <td>高雄市左營區自由二路 206號(預售中心)</td>
+      </tr>
+      <tr>
+        <td>高雄 文衡店 </td>
+        <td>高雄市鳳山區文衡路 506號1F</td>
+      </tr>
+      <tr>
+        <td>高雄 中華店</td>
+        <td>高雄市前金區中華三路 149號1F</td>
+      </tr>
+      <tr>
+        <td>高雄 SOGO店</td>
+        <td>高雄市前鎮區三多三路 217號16F</td>
+      </tr>
+      <tr>
+        <td>高雄 寶成店</td>
+        <td>高雄市前鎮區民權二路 8號1F</td>
+      </tr>
+      <tr>
+        <td>高雄 鳳山店</td>
+        <td>高雄市鳳山區中山路 149號</td>
+      </tr>
+      <tr>
+        <td>高雄 岡山店</td>
+        <td>高雄市岡山區民有路 68號5F</td>
+      </tr>
+      <tr>
+        <td>高雄 大統和平店</td>
+        <td>高雄市苓雅區和平一路 218號10F</td>
+      </tr>
+      <tr>
+        <td>屏東 自由店</td>
+        <td>屏東縣屏東市自由路 550號B1</td>
+      </tr>
+      <tr>
+        <td>屏東 潮州店</td>
+        <td>屏東縣潮州鎮延平路 117號2F</td>
+      </tr>
+      <tr>
+        <td>宜蘭 友愛店</td>
+        <td>宜蘭縣宜蘭市舊城東路 50號5F</td>
+      </tr>
+      <tr>
+        <td>宜蘭 羅東店</td>
+        <td>宜蘭縣羅東鎮興東路 85號</td>
+      </tr>
+      <tr>
+        <td>花蓮 國聯店</td>
+        <td>花蓮縣花蓮市國聯五路 58號</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+  <script>
+    const searchInput = document.getElementById('search-input');
+    const tableBody = document.querySelector('tbody');
+
+    searchInput.addEventListener('input', () => {
+      const searchTerm = searchInput.value.toLowerCase();
+      const rows = tableBody.querySelectorAll('tr');
+
+      for (const row of rows) {
+        const firstCell = row.querySelector('td:first-child');
+        const city = firstCell.textContent.toLowerCase();
+
+        if (city.includes(searchTerm)) {
+          row.style.display = 'table-row';
+        } else {
+          row.style.display = 'none';
+        }
+      }
+    });
+  </script>
+</body>
+</html>
