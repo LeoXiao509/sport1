@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons|Material+Icons+Outlined" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            transition: 0.4s all linear;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            top: 0;
+            width: 100%;
+            padding: 10px;
+            opacity: 0.9;
+            text-align: center;
+            z-index: 100;
+            background-color: rgb(230, 230, 155);
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            width: 120px;
+            height: auto;
+            padding-bottom: -10px;
+            margin-right: 10px;
+            text-align: left;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        .nav-item {
+            margin-right: 20px;
+        }
+
+        .navbar-collapse {
+            text-align: center;
+        }
+
+        header .navbar a {
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+            padding-left: 45px;
+            padding-right: 45px;
+            text-decoration: none;
+            align-items: center;
+        }
+
+        header .navbar a:hover {
+            font-size: 28px;
+            font-weight: 900;
+            color: #FFC107;
+            margin-left: 10px;
+            transform: scale(1.1);
+            background-color: rgba(255, 255, 255, 0.701);
+            padding: 15px 10px;
+        }
+
+        .item-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+        }
+
+        .item-name {
+            margin-right: 50px;
+        }
+
+        .item-price {
+            text-align: right;
+        }
+
+        .qk-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-top: 50px;
+        }
+
+        .contact-heading {
+            font-size: 32px;
+            font-weight: bold;
+            margin-bottom: 20px;
+        }
+
+        .form-item {
+            display: flex;
+            flex-direction: column;
+            margin-bottom: 20px;
+            width: 400px;
+        }
+
+        .form-item-header {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .form-item-input {
+            padding: 10px;
+            font-size: 16px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .form-item-input:focus {
+            outline: none;
+            border-color: #8dbb6b;
+        }
+
+        .select-wrapper {
+            position: relative;
+        }
+
+        .form-item-input.qk-w--100 {
+            width: 100%;
+        }
+
+        .form-item-input.qk-pos--rel {
+            position: relative;
+        }
+
+        textarea.form-item-input {
+            resize: vertical;
+        }
+
+        .btn--container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .btn {
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            color: rgb(71, 69, 69);
+            background-color: rgb(238, 238, 140);
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: rgb(219, 219, 95);
+        }
+
+        footer {
+            background-color: rgb(230, 230, 155);
+            padding: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        footer img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        #menu-bar {
+            font-size: 25px;
+            cursor: pointer;
+            color: #dfaa0b;
+            border: 1px solid #dfac16;
+            border-radius: 5px;
+            padding: 8px;
+            display: none;
+        }
+
+        .row.no-gutters.justify-content-center {
+            justify-content: center;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .col-md-10 {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .d-block.d-md-none.bg-warning {
+            background-color: #ffc107;
+        }
+
+        .d-block.d-md-none.bg-warning h1 {
+            margin-bottom: 0;
+            padding-top: 1rem;
+            padding-bottom: 4rem;
+            text-align: center;
+            color: #fff;
+        }
+
+        .row.no-gutters {
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .col-md-6.py-md-3 {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+        }
+
+        .bg-third {
+            background-color: #d9d9d9;
+            padding: 1rem;
+            padding-bottom: 2.5rem;
+        }
+
+        .bg-third h2 {
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            text-align: center;
+            color: #6c757d;
+        }
+
+        .row.no-gutters.text-center {
+            text-align: center;
+            margin-left: 0;
+            margin-right: 0;
+        }
+
+        .col-4.col-md-12.mb-md-3 {
+            margin-bottom: 1rem;
+        }
+
+        .btn.btn-block.btn-brand-light.bg-white.h-100.py-3 {
+            width: 100%;
+            background-color: #fff;
+            border: none;
+            border-radius: 0;
+        }
+
+        .btn.btn-block.btn-brand-light.bg-white.h-100.py-3 img {
+            width: 10%;
+            height: 10%;
+        }
+
+        .col-md-6 {
+            padding-left: 0;
+            padding-right: 0;
+        }
+
+        .d-none.d-md-block.bg-warning.bg-opacity-25.gx-3 {
+            background-color: rgba(255, 193, 7, 0.25);
+            padding-left: 1rem;
+            padding-right: 1rem;
+        }
+
+        .d-none.d-md-block.bg-warning.bg-opacity-25.gx-3 h1 {
+            margin-bottom: 0;
+            padding-top: 2.5rem;
+            padding-bottom: 5rem;
+            text-align: center;
+            color: #343a40;
+        }
+
+        .d-none.d-md-block.bg-warning.bg-opacity-25.gx-3 label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+            font-weight: bold;
+            color: #343a40;
+        }
+
+        .d-none.d-md-block.bg-warning.bg-opacity-25.gx-3 .form-input {
+            width: 100%;
+            padding: 0.5rem;
+            font-size: 1rem;
+            border: 1px solid #ced4da;
+            border-radius: 0.25rem;
+        }
+
+        .custom-control.custom-checkbox.text-dark.pb-4 {
+            text-align: left;
+            color: #343a40;
+        }
+
+        .custom-control.custom-checkbox.text-dark.pb-4 .custom-control-label {
+            font-weight: normal;
+        }
+
+        .bg-dark.bg-opacity-25.gx-3.text-center {
+            background-color: rgba(0, 0, 0, 0.25);
+            padding-left: 1rem;
+            padding-right: 1rem;
+            text-align: center;
+        }
+
+        .btn.btn-block.btn-lg.py-3.bg-accent {
+            display: block;
+            width: 100%;
+            padding: 1rem;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 0;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: bold;
+        }
+
+        .btn.btn-block.btn-lg.py-3.bg-accent:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 600px) {
+            #menu-bar {
+                display: initial;
+                position: absolute;
+                right: 10px;
+                top: 50px;
+            }
+            header .navbar {
+                position: absolute;
+                top: 140px;
+                left: 0;
+                right: 0;
+                background-color: rgb(211, 211, 115);
+                border-top: 3px solid gray;
+                clip-path: polygon(0 0, 100% 0, 100% 0, 0 0);
+            }
+            header .navbar.active {
+                clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+                padding: 10px;
+            }
+            header .navbar a {
+                display: block;
+                font-size: 24px;
+                font-weight: normal;
+                margin: 10px;
+                padding: 6px;
+                color: #c09002;
+                border-left: 3px solid gray;
+                background-color: white;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" width="100%" height="100%"  alt="">
+        </a>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <script src="script.js"></script>
+        <nav class="navbar">
+            <a href="./甜點首頁.html">首頁</a>
+            <a href="./甜點首頁.html#d1">甜點</a>
+            <a href="./contact.html">聯絡我們</a>
+            <a href="./登入.html">登入</a>
+        </nav>
+        <script src="script.js"></script>
+</header>
+<section class="container px-0 px-md-3 mb-0 mb-md-5">
+    <div class="row no-gutters justify-content-center">
+      <div class="col-md-10">
+        <div class="col-md-6">
+            <div class="d-none d-md-block bg-warning bg-opacity-25 gx-3">
+              <h1 class="mb-0 py-5 text-center text-dark">會員登入</h1>
+            </div>
+            <div class="d-none d-md-block bg-warning bg-opacity-25 gx-3">
+              <div>
+                <label for="username" class="material-icons form-square-icon-left">
+                  帳號：
+                </label>
+                <input type="text" name="" class="form-input w-100" placeholder="電子信箱/手機號碼">
+              </div>
+              <div>
+                <label for="password" class="material-icons form-square-icon-left">
+                  密碼：
+                </label>
+                <input type="password" name="" class="form-input w-100" placeholder="請輸入使用者密碼">
+              </div>
+              <div class="custom-control custom-checkbox text-dark pb-4">
+                <input class="custom-control-input" type="checkbox" name="" id="remember">
+                <label for="remember" class="custom-control-label">記住我</label>
+              </div>
+            </div>
+            <div class="bg-dark bg-opacity-25 gx-3 text-center">
+              <a href="#" class="btn btn-block btn-lg py-3 bg-accent">登入帳號</a>
+            </div>
+          </div>
+        <div class="row no-gutters">
+          <div class="col-md-6 py-md-3">
+            <div class="bg-third p-4 pb-md-5">
+              <h2 class="d-none d-md-block h4 pb-4 text-center text-secondary">
+                —— 連結社群帳號 ——
+              </h2>
+              <div class="row no-gutters text-center">
+                <div class="col-4 col-md-12 mb-md-3">
+                  <button class="btn btn-block btn-brand-light bg-white h-100 py-3">
+                    <a href="https://www.facebook.com/people/Lin%25E6%2589%258B%25E4%25BD%259C%25E7%2594%259C%25E9%25BB%259E/100064454783090/">
+                        <img src="./ic-facebook-logotype.svg" class="img-fluid" width="80">
+                    </a>
+                  </button>
+                </div>
+                <div class="col-4 col-md-12 mb-md-3">
+                  <button class="btn btn-block btn-brand-light bg-white h-100 py-3">
+                    <img src="./ic-google.svg" class="img-fluid" width="70">
+                  </button>
+                </div>
+                <div class="col-4 col-md-12 mb-md-3">
+                  <button class="btn btn-block btn-brand-light bg-white h-100 py-3">
+                    <img src="./ic-yahoo.svg" class="img-fluid" width="80">
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+
+      <footer>
+          <div>
+              <img src="instagram.svg" alt="">
+              <img src="facebook.svg" alt=""> 
+              Follow us
+          </div>
+      </footer>
+</body>
+
+</html>

@@ -1,0 +1,389 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>—LIN手作甜點首頁—</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            transition: 0.4s all linear;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            top: 0;
+            width: 100%;
+            padding: 10px;
+            opacity: 0.9;
+            text-align: center;
+            z-index: 100;
+            background-color: rgb(230, 230, 155);
+            align-items: center;
+        }
+
+        .navbar-brand img {
+            width: 120px;
+            height: auto;
+            padding-bottom: -10px;
+            margin-right: 10px;
+            text-align: left;
+        }
+
+        .navbar-nav {
+            margin-left: auto;
+        }
+
+        .nav-item {
+            margin-right: 20px;
+        }
+        .navbar-collapse {
+            text-align: center;
+        }
+
+        header .navbar a {
+            color: black;
+            font-size: 24px;
+            font-weight: bold;
+            padding-left: 45px;
+            padding-right: 45px;
+            text-decoration: none;
+            align-items: center;
+        }
+
+
+        header .navbar a:hover {
+            font-size: 28px;
+            font-weight: 900;
+            color: FFC107;
+            margin-left: 10px;
+            transform: 2s;
+            background-color: rgba(255, 255, 255, 0.701);
+            padding: 15px 10px 15px 10px;
+        }
+
+        .dessert {
+            margin-bottom: 30px;
+        }
+
+        .dessert img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 5px;
+        }
+
+        .item-body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 28px;
+        }
+
+        .item-name {
+            margin-right: 50px;
+        }
+
+        .item-price {
+            text-align: right;
+        }
+
+        footer {
+            background-color: rgb(230, 230, 155);
+            padding: 20px;
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+        footer img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+        /*
+        .custom-controls {
+        text-align: center;
+        margin-top: 10px;
+        }
+
+        .custom-controls button {
+        background-color: #333;
+        color: #fff;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        margin-right: 10px;
+        cursor: pointer;
+        }
+
+        .custom-controls button:hover {
+        background-color: #555;
+        }
+        */
+
+        .dessert-introduction {
+            display: flex;
+            align-items: center;
+            background-color: #F8F4E3;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        .dessert-image {
+            width: 200px;
+            height: auto;
+            margin-right: 20px;
+            border-radius: 5px;
+        }
+
+        .dessert-content {
+            flex: 1;
+        }
+
+        .dessert-name {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .dessert-description {
+            font-size: 16px;
+            margin-bottom: 10px;
+        }
+
+        .dessert-price {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .add-to-cart {
+            background-color: #FFC107;
+            background-color: rgb(230, 230, 155);
+            border: none;
+            padding: 10px 20px;
+            font-size: 18px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .recommend{
+            background-color: #f5b868;
+            color: #FFF;
+            border: none;
+            padding: 10px 20px;
+            font-size: 35px;
+            font-weight: bold;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .navbar-toggler {
+        padding: 0.25rem 0.75rem;
+        font-size: 1.25rem;
+        line-height: 1;
+        background-color: transparent;
+        border: 1px solid transparent; }
+        .navbar-toggler:hover, .navbar-toggler:focus {
+            text-decoration: none; }
+        .navbar-toggler:not(:disabled):not(.disabled) {
+            cursor: pointer; }
+
+        .navbar-toggler-icon {
+        display: inline-block;
+        width: 1.5em;
+        height: 1.5em;
+        vertical-align: middle;
+        content: "";
+        background: no-repeat center center;
+        background-size: 100% 100%; }
+
+        #menu-bar{
+            font-size: 25px;
+            cursor: pointer;
+            color: #dfaa0b;
+            border: 1px solid #dfac16;
+            border-radius: 5px;
+            padding: 8px;
+            display: none;
+        }
+        /*RWD手機板*/
+        @media(max-width:600px){
+            #menu-bar{
+                display: initial;
+                position: absolute;
+                right: 10px;
+                top:50px;
+            }
+            header .navbar{
+                position: absolute;
+                top: 140px;left: 0;right: 0;
+                background-color: rgb(211, 211, 115);
+                border-top: 3px solid gray;
+                clip-path:polygon(0 0,100% 0,100% 0,0 0);
+            }
+            header .navbar.active{
+                clip-path:polygon(0 0,100% 0,100% 100%,0 100%);
+                padding: 10px;
+            }
+            header .navbar a{
+                display: block;
+                font-size: 24px;
+                font-weight: normal;
+                margin: 10px; padding: 6px;
+                color: #c09002;
+                border-left: 3px solid gray;
+                background-color: white;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a class="navbar-brand" href="#">
+            <img src="logo.png" width="100%" height="100%"  alt="">
+        </a>
+        <div id="menu-bar" class="fas fa-bars"></div>
+        <script src="script.js"></script>
+        <nav class="navbar">
+            <a href="./甜點首頁.html">首頁</a>
+            <a href="#d1">甜點</a>
+            <a href="./contact.html">聯絡我們</a>
+            <a href="./登入.html">登入</a>
+        </nav>
+    </header>
+    <p></p>
+    </div>
+
+    <div>
+        <article>
+            <div class="owl-carousel" data-slide="1" id="d1">
+            <div class="item"><img src="./desserts1.jpg" alt="Image 1"></div>
+            <div class="item"><img src="./desserts2.jpg" alt="Image 2"></div>
+            <div class="item"><img src="./desserts3.jpg" alt="Image 3"></div>
+            <div class="item"><img src="./desserts4.jpg" alt="Image 4"></div>
+            <div class="item"><img src="./desserts5.jpg" alt="Image 5"></div>
+            <div class="item"><img src="./desserts6.jpg" alt="Image 6"></div>
+            <div class="item"><img src="./desserts7.jpg" alt="Image 7"></div>
+            <div class="item"><img src="./desserts8.jpg" alt="Image 8"></div>
+            <div class="item"><img src="./desserts9.jpg" alt="Image 9"></div>
+            <div class="item"><img src="./desserts10.jpg" alt="Image 10"></div>
+            </div>
+          <script>
+            $('.owl-carousel').owlCarousel({
+            loop: true,
+            margin: 10,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 2500,
+            navText: ["<span class='owl-prev'>&#10094;</span>","<span class='owl-next'>&#10095;</span>"],
+            responsive:{
+                0:{
+                items: 1
+                },
+                600:{
+                items: 2
+                },
+                1000:{
+                items: 3
+                }
+            },
+            rewind: true
+            });
+
+            $('.custom-prev').click(function() {
+                $('.owl-carousel').trigger('prev.owl.carousel');
+            });
+
+            $('.custom-next').click(function() {
+                $('.owl-carousel').trigger('next.owl.carousel');
+            });
+          </script>
+        </article>
+      </div>
+    <div>
+    <section>
+        <h3 class="recommend">本日精選</h3>
+        <div class="row products justify-content-center ">
+            <div class="dessert-introduction">
+                <img src="1.jpg" alt="" class="dessert-image">
+                <div class="dessert-content">
+                  <h3 class="dessert-name">莓果塔</h3>
+                  <p class="dessert-description">這款莓果塔結合了新鮮的草莓、藍莓和覆盆子，搭配酥脆的塔皮和濃郁的奶油餡，帶來口感豐富的美味享受。每一口都充滿了果香和甜蜜，絕對是甜點愛好者的最愛。</p>
+                  <div class="dessert-price">NT$450</div>
+                  <button class="add-to-cart">加入購物車</button>
+                </div>
+            </div>
+            <div class="dessert-introduction">
+                <img src="2.jpg" alt="" class="dessert-image">
+                <div class="dessert-content">
+                  <h3 class="dessert-name">黑糖肉桂捲</h3>
+                  <p class="dessert-description">黑糖加上蜂蜜熬煮，鋪底一起烘烤濕潤度高、甜度偏高微微黏口，搭配脆脆的胡桃，享受鬆軟的肉桂捲同時可以吃到脆脆的堅果。</p>
+                  <div class="dessert-price">NT$439</div>
+                  <button class="add-to-cart">加入購物車</button>
+                </div>
+            </div>
+            <div class="dessert-introduction">
+                <img src="3.jpg" alt="" class="dessert-image">
+                <div class="dessert-content">
+                  <h3 class="dessert-name">黑騎士蛋糕</h3>
+                  <p class="dessert-description">本體是巧克力戚風蛋糕，搭配75%法國巧克力香緹。</p>
+                  <div class="dessert-price">NT$660</div>
+                  <button class="add-to-cart">加入購物車</button>
+                </div>
+            </div>
+            <div class="dessert-introduction">
+                <img src="4.jpg" alt="" class="dessert-image">
+                <div class="dessert-content">
+                  <h3 class="dessert-name">玫瑰覆盆子瑪德蓮</h3>
+                  <p class="dessert-description">剛烤出來的瑪德蓮，熱呼呼的還會有點燙手，蛋糕體是軟綿綿帶一點點脆度的口感，內餡咬下去還會爆漿，覆盆子的口感相當棒，跟上次吃到覆盆子玫瑰可頌味道非常相近。</p>
+                  <div class="dessert-price">NT$320</div>
+                  <button class="add-to-cart">加入購物車</button>
+                </div>
+            </div>
+            <div class="dessert-introduction">
+                <img src="5.jpg" alt="" class="dessert-image">
+                <div class="dessert-content">
+                  <h3 class="dessert-name">鳳梨馬鞭草泡芙</h3>
+                  <p class="dessert-description">上層像蛋黃狀的，是用糖膜包著奶油，有點像是冰淇淋的口感，泡芙內放著鳳梨果泥，再加上馬鞭草甘納許，鳳梨果泥帶點酸味相當不錯，不過泡芙本身口感是偏軟，我比較喜歡酥脆的口感。</p>
+                  <div class="dessert-price">NT$180</div>
+                  <button class="add-to-cart">加入購物車</button>
+                </div>
+            </div>
+            <div class="dessert-introduction">
+                <img src="6.jpg" alt="" class="dessert-image">
+                <div class="dessert-content">
+                  <h3 class="dessert-name">聖多諾黑</h3>
+                  <p class="dessert-description">由千層、鮮奶油、焦糖泡芙組成，奶油不甜膩，我想亮點是在千層。</p>
+                  <div class="dessert-price">NT$170</div>
+                  <button class="add-to-cart">加入購物車</button>
+                </div>
+            </div>
+    </section>
+    <footer>
+        <div>
+            <img src="instagram.svg" alt="">
+            <img src="facebook.svg" alt=""> 
+            Follow us
+        </div>
+    </footer>
+    </div>
+</body>
+</html>
